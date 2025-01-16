@@ -8,22 +8,36 @@ export default function Chatroom() {
 
     useEffect(() => {
         fetchMessages();
-        const subscription = supabase
-            .from('messages')
-            .on('INSERT', (payload) => {
-                setMessages((prev) => [...prev, payload.new]);
-            })
-            .subscribe();
 
-        return () => supabase.removeSubscription(subscription);
+        const channel = supabase
+            .channel('realtime:messages') // Create a new channel
+            .on(
+                'postgres_changes', // Listen to changes
+                { event: 'INSERT', schema: 'public', table: 'messages' }, // Subscribe to insert events
+                (payload) => {
+                    setMessages((prev) => [...prev, payload.new]);
+                }
+            )
+            .subscribe(); // Subscribe to real-time updates
+
+        // Cleanup on component unmount
+        return () => {
+            supabase.removeChannel(channel); // Remove the channel when component unmounts
+        };
     }, []);
 
     const fetchMessages = async () => {
-        const { data } = await supabase
+        const { data, error } = await supabase
             .from('messages')
             .select('*')
             .order('created_at', { ascending: true });
-        setMessages(data);
+
+        if (error) {
+            console.error('Error fetching messages:', error);
+            return;
+        }
+
+        setMessages(data || []);
     };
 
     const sendMessage = async (e) => {
