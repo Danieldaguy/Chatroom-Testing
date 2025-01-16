@@ -1,21 +1,17 @@
 {
   "name": "chatroom",
   "version": "1.0.0",
-  "private": true,
+  "description": "A simple chatroom app using Supabase",
+  "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.0.0", // Adjust version if needed
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
-  },
-  "devDependencies": {
-    "eslint": "latest",
-    "eslint-config-next": "latest"
+    "@supabase/supabase-js": "^2.0.0",
+    "next": "13.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   }
 }
