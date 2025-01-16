@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
+import '../styles/globals.css'; // Import your CSS file globally
 
 export default function Chatroom() {
     const [messages, setMessages] = useState([]);
@@ -30,7 +31,7 @@ export default function Chatroom() {
         const { data, error } = await supabase
             .from('messages')
             .select('*')
-            .order('created_at', { ascending: true });
+            .order('timestamp', { ascending: true });
 
         if (error) {
             console.error('Error fetching messages:', error);
@@ -51,32 +52,45 @@ export default function Chatroom() {
     };
 
     return (
-        <div style={{ padding: '20px' }}>
-            <h1>Chatroom</h1>
-            <form onSubmit={sendMessage}>
+        <div id="chat-container">
+            <h1>🔥•LitChat V1•🔥</h1>
+            <h5>By 🔥•Ember Studios•🔥</h5>
+
+            <div id="username-container">
+                Username:
                 <input
                     type="text"
-                    placeholder="Your username"
+                    id="username-input"
+                    placeholder="Enter your username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
                 />
-                <input
-                    type="text"
-                    placeholder="Type a message"
-                    value={newMessage}
-                    onChange={(e) => setNewMessage(e.target.value)}
-                    required
-                />
-                <button type="submit">Send</button>
-            </form>
-            <div style={{ marginTop: '20px' }}>
+            </div>
+
+            <div id="messages">
                 {messages.map((msg) => (
                     <div key={msg.id}>
                         <strong>{msg.username}:</strong> {msg.message}
                     </div>
                 ))}
             </div>
+
+            <form id="send-form" onSubmit={sendMessage}>
+                <input
+                    type="text"
+                    id="message-input"
+                    placeholder="Type your message..."
+                    value={newMessage}
+                    onChange={(e) => setNewMessage(e.target.value)}
+                    required
+                />
+                <button type="submit">Send</button>
+            </form>
+
+            <button id="clear-chat-btn" onClick={() => setMessages([])}>
+                Clear Chat
+            </button>
         </div>
     );
 }
