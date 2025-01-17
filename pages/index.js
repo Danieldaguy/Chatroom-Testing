@@ -54,7 +54,7 @@ export default function Chatroom() {
     return (
         <div id="chat-container">
             <h1>🔥•LitChat V1•🔥</h1>
-            <h5>By 🔥•Ember Studios•🔥</h5>
+            <h5>Byl 🔥•Ember Studios•🔥</h5>
 
             <div id="username-container">
                 Username:
