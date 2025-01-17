@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
-import '../styles/globals.css';
 import Modal from 'react-modal'; // Modal library for profile picture upload
 import { sendFileToSupabase } from '../utils/uploadFile'; // File upload helper
 
