@@ -1,0 +1,131 @@
+/* Global styles for LitChat */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+#chat-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ff6347;
+}
+
+h5 {
+    font-size: 1rem;
+    color: #777;
+}
+
+#username-container,
+#profile-container,
+#status-container {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+input[type="text"],
+button {
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+}
+
+#messages {
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#messages div {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+button[type="submit"] {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #e5533e;
+}
+
+#clear-chat-btn {
+    background-color: #ccc;
+    color: white;
+    margin-top: 10px;
+}
+
+#clear-chat-btn:hover {
+    background-color: #999;
+}
+
+.profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#roles {
+    margin-top: 20px;
+}
+
+#direct-messages {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    width: 100%;
+}
+
+#rules {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+#premade-channels ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#premade-channels li {
+    background-color: #eee;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+#status-container input {
+    width: 50%;
+    margin-top: 5px;
+}
